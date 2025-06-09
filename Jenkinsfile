@@ -33,7 +33,8 @@ pipeline {
                         // in a scripted step.
                         // https://www.jenkins.io/doc/pipeline/steps/workflow-durable-task-step/#sh-shell-script 
                         summary = sh(script: 'cat summary.html', returnStdout: true)
-                        buildDescription(summary)
+                        // buildDescription(summary)
+                        currentBuild.description = summary
                     }
                     // Save the logs directory.
                     archiveArtifacts 'logs/**'
